@@ -18,7 +18,7 @@ const NewsCard = ({news}) => {
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center">
                         <img
-                            src={image_url}
+                            src={img}
                             alt="Author"
                             className="w-10 h-10 rounded-full"
                         />
@@ -38,7 +38,7 @@ const NewsCard = ({news}) => {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-lg font-semibold mb-2">{title}</h2>
+                <h2 className="text-3xl font-semibold mb-2">{title}</h2>
 
                 {/* Thumbnail */}
                 <img
@@ -48,7 +48,7 @@ const NewsCard = ({news}) => {
                 />
 
                 {/* Description */}
-                <p className="text-sm text-gray-600">
+                <p className="text-lg text-gray-600">
                     {details.slice(0, 200)}...
                     <span className="text-primary font-semibold cursor-pointer"> Read More</span>
                 </p>

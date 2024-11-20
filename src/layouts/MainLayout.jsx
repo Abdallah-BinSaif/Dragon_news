@@ -2,6 +2,9 @@ import React from 'react';
 import Header from "../components/Header.jsx";
 import Categories from "../components/all category/Categories.jsx";
 import {Outlet} from "react-router-dom";
+import LoginWith from "../components/login/LoginWith.jsx";
+import FindUsOn from "../components/login/FindUsOn.jsx";
+import QZone from "../components/login/QZone.jsx";
 
 const MainLayout = () => {
     return (
@@ -16,7 +19,11 @@ const MainLayout = () => {
                     Dragon News Home
                     <Outlet></Outlet>
                 </div>
-                <div className={"col-span-3 p-2"}>Login With</div>
+                <div className={"col-span-3 p-2 space-y-4"}>
+                    <LoginWith></LoginWith>
+                    <FindUsOn/>
+                    <QZone/>
+                </div>
             </div>
             MainLayout.jsx
         </div>
