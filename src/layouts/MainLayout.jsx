@@ -12,11 +12,11 @@ const MainLayout = () => {
             <Header></Header>
             <div className={"grid grid-cols-12"}>
                 <div className={"col-span-3 p-2"}>
-                    <p>All Category</p>
+                    <h2 className={"font-bold text-xl mb-4"}>All Category</h2>
                     <Categories></Categories>
                 </div>
-                <div className={"col-span-6 p-2"}>
-                    Dragon News Home
+                <div className={"w-11/12 mx-auto col-span-6 p-2"}>
+                    <h2 className={"font-bold text-xl mb-4"}>Dragon News Home</h2>
                     <Outlet></Outlet>
                 </div>
                 <div className={"col-span-3 p-2 space-y-4"}>

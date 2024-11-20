@@ -12,7 +12,7 @@ const NewsCard = ({news}) => {
     } = news;
 
     return (
-        <div className="card w-11/12 mx-auto bg-base-100 shadow-lg border">
+        <div className="card bg-base-100 shadow-lg border">
             <div className="card-body">
                 {/* Author Section */}
                 <div className="flex items-center justify-between mb-4">
