@@ -1,8 +1,10 @@
-import React from 'react';
-import {NavLink} from "react-router-dom";
+import React, {useContext} from 'react';
+import {Link, NavLink} from "react-router-dom";
 import {MdAccountCircle} from "react-icons/md";
+import {AuthContext} from "../authContext/AuthProvider.jsx";
 
 const Navbar = () => {
+    const {name} = useContext(AuthContext)
     const lists = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/"}>About</NavLink></li>
@@ -32,7 +34,7 @@ const Navbar = () => {
                         {lists}
                     </ul>
                 </div>
-                <a className=" text-xl"></a>
+                <a className=" text-xl">{name}</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -41,7 +43,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end text-xl gap-2">
                 <MdAccountCircle></MdAccountCircle>
-                <a className={"px-4 py2 bg-gray-800 text-white"}>Button</a>
+                <Link to={"/auth/login"} className={"px-4 py-2 bg-gray-800 text-white"}>Login</Link>
             </div>
         </div>
     );
