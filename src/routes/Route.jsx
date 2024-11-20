@@ -4,6 +4,7 @@ import NewsCards from "../components/cards/NewsCards.jsx";
 import DetailLayout from "../layouts/DetailLayout.jsx";
 import AuthLayout from "../layouts/AuthLayout.jsx";
 import Login from "../components/authentication/Login.jsx";
+import Register from "../components/authentication/Register.jsx";
 
 const router = createBrowserRouter([
     {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "register",
-                element: <div>Register</div>
+                element: <Register/>
             }
         ]
     }
