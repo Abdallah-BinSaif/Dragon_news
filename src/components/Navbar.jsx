@@ -5,8 +5,8 @@ import {MdAccountCircle} from "react-icons/md";
 const Navbar = () => {
     const lists = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
-        <li><NavLink to={"/about"}>About</NavLink></li>
-        <li><NavLink to={"/career"}>Career</NavLink></li>
+        <li><NavLink to={"/"}>About</NavLink></li>
+        <li><NavLink to={"/"}>Career</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">

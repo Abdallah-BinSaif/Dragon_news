@@ -1,7 +1,7 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 import MainLayout from "../layouts/MainLayout.jsx";
-import About from "../pages/About.jsx";
 import NewsCards from "../components/cards/NewsCards.jsx";
+import DetailLayout from "../layouts/DetailLayout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -9,23 +9,24 @@ const router = createBrowserRouter([
         element: <MainLayout></MainLayout>,
         children: [
             {
+                path: "",
+                element:<Navigate to={"/category/01"}/>,
+            },
+            {
                 path: "/category/:id",
                 loader: ({params})=> fetch(`https://openapi.programming-hero.com/api/news/category/${params.id}`),
                 element: <NewsCards/>,
-            },
-            {
-                path: "/career",
-                element: <About></About>,
             }
         ]
     },
     {
-        path: "/about",
-        element: <About></About>,
+        path: "/news/:id",
+        loader: ({params}) => fetch(`https://openapi.programming-hero.com/api/news/${params.id}`),
+        element: <DetailLayout />,
     },
     {
         path: "/career",
-        element: <About></About>,
+        element: <div>Career</div>,
     }
 ])
 

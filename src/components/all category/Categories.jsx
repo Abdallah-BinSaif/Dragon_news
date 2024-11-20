@@ -11,11 +11,11 @@ const Categories = () => {
     }, []);
 
     return (
-        <div className={"flex flex-col text-white gap-4"}>
+        <div className={"flex flex-col gap-4"}>
             {
                 categories.map(singleCategory => <NavLink
                     to={`category/${singleCategory.category_id}`}
-                    className={"bg-gray-500 py-2 rounded-xl px-4"}
+                    className={"bg-base-300 py-2 rounded-xl px-4"}
                     key={singleCategory.category_id}
                 >{singleCategory.category_name}</NavLink>)
             }
