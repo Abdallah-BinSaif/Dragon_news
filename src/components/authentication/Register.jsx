@@ -1,7 +1,12 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React, {useContext} from 'react';
+import {Link, Navigate, useNavigate} from "react-router-dom";
+import {AuthContext} from "../../authContext/AuthProvider.jsx";
 
 const Register = () => {
+
+    const {createUser, setUser} = useContext(AuthContext)
+
+    const navigate = useNavigate();
     const handleRegisterForm = (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
@@ -10,6 +15,11 @@ const Register = () => {
         const email = form.get("email")
         const password = form.get("password")
         console.log({name, photo, password, email})
+
+        createUser(email,password).then(res=>{
+            setUser(res.user)
+            navigate("/")
+        }).catch(err=>console.log(err.code))
     }
     return (
         <div className={"min-h-[100vh-10px] flex justify-center items-center"}>
@@ -39,7 +49,7 @@ const Register = () => {
                                 type="text"
                                 placeholder="photo_url"
                                 className="input input-bordered"
-                                required/>
+                            />
                         </div>
                         <div className="form-control">
                             <label className="label">

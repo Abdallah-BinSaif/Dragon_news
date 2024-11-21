@@ -4,12 +4,14 @@ import {MdAccountCircle} from "react-icons/md";
 import {AuthContext} from "../authContext/AuthProvider.jsx";
 
 const Navbar = () => {
-    const {name} = useContext(AuthContext)
+    const {user, signOutUser} = useContext(AuthContext)
+    console.log(user)
     const lists = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li><NavLink to={"/"}>About</NavLink></li>
         <li><NavLink to={"/"}>Career</NavLink></li>
     </>
+
     return (
         <div className="navbar bg-base-100 w-11/12 mx-auto">
             <div className="navbar-start">
@@ -34,7 +36,7 @@ const Navbar = () => {
                         {lists}
                     </ul>
                 </div>
-                <a className=" text-xl">{name}</a>
+                <a className=" text-xl">{user?.email}</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -43,7 +45,12 @@ const Navbar = () => {
             </div>
             <div className="navbar-end text-xl gap-2">
                 <MdAccountCircle></MdAccountCircle>
-                <Link to={"/auth/login"} className={"px-4 py-2 bg-gray-800 text-white"}>Login</Link>
+
+                {
+                    user && user.email ? <button onClick={signOutUser} className={"px-4 py-2 bg-gray-800 text-white"}>Sign Out</button> : <Link to={"/auth/login"} className={"px-4 py-2 bg-gray-800 text-white"}>Login</Link>
+                }
+
+
             </div>
         </div>
     );
