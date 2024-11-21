@@ -1,14 +1,22 @@
-import React from 'react';
-import {Link} from "react-router-dom";
+import React, {useContext} from 'react';
+import {Link, useNavigate} from "react-router-dom";
+import {AuthContext} from "../../authContext/AuthProvider.jsx";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const {signInUser,setUser} = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const form = new FormData(e.target)
-        const email = form.get("email")
-        const password = form.get("password")
-        console.log(email, password)
+        const form = new FormData(e.target);
+        const email = form.get("email");
+        const password = form.get("password");
+        console.log(email, password);
+
+        signInUser(email, password).then((res)=> {
+            setUser(res.user)
+            navigate("/")
+        }).catch(err => console.log(err))
 
 
     }

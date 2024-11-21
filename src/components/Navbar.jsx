@@ -36,7 +36,7 @@ const Navbar = () => {
                         {lists}
                     </ul>
                 </div>
-                <a className=" text-xl">{user?.email}</a>
+                <a className=" text-xl">{user && user?.email}</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
